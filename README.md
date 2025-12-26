@@ -95,3 +95,46 @@ Teacher mong muốn hệ thống hỗ trợ gì?
 •	Chấm bài nhanh, chính xác
 •	Lưu trữ tài liệu và tài nguyên giảng dạy cá nhân
 •	Nhận gợi ý từ AI để cải thiện nội dung giảng dạy
+
+
+Setup môi trường (Environment Setup):
+BƯỚC 1: Infrastructure (Cài đặt Database MySQL bằng Docker)
+Trong thư mục gốc PlanbookAI_Project
+Mở Terminal tại thư mục docker-compose.yml, chạy lệnh:
+docker-compose up -d
+Kiểm tra: Mở Docker Desktop hoặc gõ docker ps. Nếu thấy pba-mysql đang chạy (Up) là thành công.(nếu chưa có Docker Desktop thì vào https://www.docker.com/#mcp đẻ tải về )
+BƯỚC 2: Backend (Spring Boot)
+Chạy thử: Tìm file PlanbookaiApplication.java, chuột phải chọn Run. Nếu Console báo "Started PlanbookaiApplication..." và không có lỗi đỏ lòm là thành công
+BƯỚC 3: Frontend (ReactJS + Ant Design)
+
+Mở Terminal tại thư mục gốc PlanbookAI_Project.
+
+Chạy lệnh tạo project React:
+
+Bash
+
+npm create vite@latest frontend -- --template react
+Di chuyển vào thư mục frontend:
+
+Bash
+
+cd frontend
+
+Cài đặt các thư viện cần thiết:
+Bash
+
+# Cài đặt dependencies cơ bản
+npm install
+
+# Cài đặt Ant Design (UI Library)
+npm install antd --save
+
+# Cài đặt React Router (để chuyển trang) và Axios (gọi API)
+npm install react-router-dom axios
+
+Chạy thử:
+Bash
+
+npm run dev
+Truy cập http://localhost:5173. Nếu thấy nút bấm màu xanh "Hello Teacher" là xong Frontend!
+
